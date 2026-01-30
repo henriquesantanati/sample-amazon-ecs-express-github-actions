@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     # checkov:skip=CKV2_GHA_1:Write permissions required for deployment workflow
+    #checkov:skip:CKV2_GHA_1:Write permissions required for deployment workflow
     permissions:
       id-token: write
       contents: read
