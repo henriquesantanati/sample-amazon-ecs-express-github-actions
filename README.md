@@ -114,3 +114,19 @@ See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more inform
 ## License
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
+
+## Security Scan Suppressions
+
+This project contains suppressed security findings from Checkov and Semgrep static analysis tools. All suppressions have been reviewed and documented with technical justifications.
+
+### Summary of Suppressions
+
+| Finding | Tool | Justification | Risk |
+|---------|------|---------------|------|
+| CKV_DOCKER_3: User creation | Checkov | Base image already implements non-root user ([source](https://github.com/aws-containers/retail-store-sample-app/blob/main/src/ui/Dockerfile)) | ✅ Low |
+| CKV_DOCKER_2: HEALTHCHECK | Checkov | Health checks handled by ECS/ALB at infrastructure layer | ✅ Low |
+| CKV2_GHA_1: GHA Permissions | Checkov | Write permissions required for deployment with branch protection | ✅ Low |
+| third-party-action-not-pinned | Semgrep | Official AWS actions pinned to semantic versions for maintainability | ✅ Low |
+| dockerfile-source-not-pinned | Semgrep | Base image pinned to version 1.3.0 from official AWS ECR Public | ✅ Low |
+
+**📄 Full Details:** See [SECURITY-SCAN-SUPPRESSIONS.md](./SECURITY-SCAN-SUPPRESSIONS.md) for complete technical justifications and risk assessments.
