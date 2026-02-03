@@ -54,7 +54,7 @@ jobs:
         # generate both latest and digest tag
         tags: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest,${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}          
       
-    - name: Deploy to ECS Express Mode service
+    - name: Deploy to ECS Express Mode
       # nosemgrep: third-party-action-not-pinned-to-commit-sha
       uses: aws-actions/amazon-ecs-deploy-express-service@v1
       env:
